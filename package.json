@@ -1,0 +1,34 @@
+{
+    "name": "viem",
+    "version": "1.0.0",
+    "description": "",
+    "author": {
+        "name": "Reynard"
+    },
+    "bin": {
+        "html": "bin/index.js"
+    },
+    "browserslist": "last 4 Chrome versions, last 4 Edge versions, last 4 Firefox versions, last 4 Safari versions",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "build": "parcel build src/index.html --dist-dir dist",
+        "dev": "concurrently \"parcel src/index.html --dist-dir dist\" \"tsc -w\""
+    },
+    "alias": {
+        "@/**/*": "/ts/$1/$2"
+    },
+    "devDependencies": {
+        "@parcel/transformer-sass": "^2.12.0",
+        "@types/dompurify": "^3.0.5",
+        "concurrently": "^8.2.2",
+        "parcel": "^2.12.0",
+        "typescript": "^5.4.5"
+    },
+    "dependencies": {
+        "@preact/signals": "^1.2.3",
+        "dompurify": "^3.1.6",
+        "preact": "^10.22.0",
+        "preact-async-route": "^2.2.1",
+        "preact-router": "^4.1.2"
+    }
+}

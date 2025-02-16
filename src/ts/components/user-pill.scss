@@ -1,0 +1,22 @@
+.user-pill {
+    background: var(--zinc-800);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    font-size: 14px;
+    display: inline-block;
+    border-radius: 1em;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35em;
+    padding-inline: 0.23em 0.75em;
+    padding-block: 0.25em;
+    height: 1em;
+    i {
+        font-size: 16px;
+        line-height: 0;
+        color: var(--accent);
+    }
+    &[data-role="admin"] { --accent: var(--red-300); order: 0; }
+    &[data-role="moderator"] { --accent: var(--green-300); order: 1; }
+    &[data-role="user"] { order: 2; }
+    &[data-role="guest"] { --accent: var(--zinc-400); order: 3; }
+}

@@ -1,0 +1,53 @@
+.chat-view {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    padding: 0.5em;
+    box-sizing: border-box;
+    overflow-y: auto;
+    overflow-x: hidden;
+    gap: 0.25em 0.5em;
+    
+    > * { grid-column: 1 / -1; }
+    > .message {
+        display: grid;
+        grid-template-columns: subgrid;
+
+        > .author-container {
+            display: flex;
+            justify-content: right;
+        }
+        &.meta {
+            &[data-type="user-part"] { --accent: var(--red-500); }
+            &[data-type="user-join"] { --accent: var(--green-500); }
+            color: var(--accent);
+            > span {
+                opacity: 0.75;
+                padding-block: 0.125em;
+            }
+        }
+        &.chat {
+            
+            > .chat-msgs {
+                display: flex;
+                flex-direction: column;
+                gap: 0.5em;
+                > p {
+                    margin: 0;
+                }
+            }
+            &.server {
+                margin-block: 1em;
+                > .author-container {
+                    padding-block: 0.3em;
+                }
+                > .chat-msgs {
+                    background-color: var(--zinc-800);
+                    border-radius: 0.25em;
+                    padding: 0.5em;
+                    box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+                }
+            }
+        }
+    }
+    
+}

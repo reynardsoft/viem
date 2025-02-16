@@ -1,0 +1,86 @@
+.vm-list-entry {
+    display: inline-flex;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+    background: var(--zinc-900);
+    border-radius: 6px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    border: 1px solid var(--zinc-800);
+    gap: 0.5em;
+    > .thumb {
+        display: grid;
+        place-items: center;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr;
+        > * {
+            grid-column: 1;
+            grid-row: 1;
+        }
+        > img {
+            aspect-ratio: 4/3;
+            max-width: 40vw;
+            min-height: 100%;
+            max-height: 160px;
+            
+            object-fit: cover;
+            border-top-left-radius: 6px;
+            border-bottom-left-radius: 6px;
+        }
+    }
+    > .data {
+        overflow-y: auto;
+        overflow-x: hidden;
+        > .userList {
+            display: flex;
+            gap: 0.25em;
+            flex-wrap: wrap;
+            > * {
+                flex: 0 0 0;
+                white-space: nowrap;
+            }
+        }
+    }
+
+    &[data-vmid="vm0b0t"] {
+        .thumb:not(:hover) {
+            @supports (backdrop-filter: blur(10px)) {
+                > .cover {
+                    backdrop-filter: blur(10px);
+                    background: rgba(0, 0, 0, 0.5);
+                    width: 100%;
+                    height: 100%;
+                    border-top-left-radius: 6px;
+                    border-bottom-left-radius: 6px;
+                }
+            }
+            @supports (not (backdrop-filter: blur(10px)))  and (filter: blur(10px)) {
+                filter: blur(10px);
+            }
+            @supports (not (backdrop-filter: blur(10px))) and (not (filter: blur(10px))) {
+                > .cover {
+                    background: rgba(0, 0, 0, 0.8);
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+        }
+    }
+
+    transition: 0.125s background-color, 0.125s box-shadow;
+    &:hover {
+        background: var(--zinc-800);
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.75);
+    }
+
+}
+
+.vm-list {
+    .vms {
+        display: grid;
+        gap: 1em;
+        grid-template-columns: repeat(auto-fill, 100%);
+        @media (min-width: 768px) {
+            grid-template-columns: repeat(auto-fill, minmax(700px, 1fr));
+        }
+    }
+}

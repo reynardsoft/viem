@@ -1,2 +1,1 @@
-# viem
-wip front-end for collabvm
+You'll need to run both the web app and the included ws-proxy to get anything to work.
